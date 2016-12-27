@@ -2,15 +2,16 @@ import React, {Component} from 'react';
 
 import './Key.css';
 
+import notes from './notes.json';
+
 class Key extends Component {
     static propTypes = {
-        sharp: React.PropTypes.bool,
+        note: React.PropTypes.oneOf(notes).isRequired,
         onPress: React.PropTypes.func,
         onRelease: React.PropTypes.func
     };
 
     static defaultProps = {
-        sharp: false,
         onPress: () => {},
         onRelease: () => {}
     };
@@ -30,9 +31,9 @@ class Key extends Component {
     };
 
     cssClasses = () => {
-        const {sharp, keyLeft, keyRight} = this.props;
+        const {note, keyLeft, keyRight} = this.props;
 
-        const sharpClass = sharp ? 'sharp' : '';
+        const sharpClass = note.includes('#') ? 'sharp' : '';
         const keyLeftClass = keyLeft ? 'key-left' : '';
         const keyRightClass = keyRight ? 'key-right' : '';
         const pressedClass = this.state.pressed ? 'pressed' : '';

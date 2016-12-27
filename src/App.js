@@ -3,12 +3,12 @@ import React, {Component} from 'react';
 import './App.css';
 
 import Key from './Key.js';
+import notes from './notes';
 
 class App extends Component {
     keys() {
-        const notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
         return notes.map((note) =>
-            <Key sharp={note.includes('#')} key={note}/>
+            <Key note={note} key={note}/>
         );
     }
 
