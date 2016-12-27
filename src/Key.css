@@ -1,0 +1,19 @@
+.key {
+    width: 2em;
+    height: 10em;
+    background-color: white;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.key.sharp {
+    width: 0.75em;
+    height: 6em;
+    background-color: black;
+    margin: 0 -0.5em;
+    z-index: 10;
+}
+
+.key.pressed {
+    background-color: dodgerblue;
+}
