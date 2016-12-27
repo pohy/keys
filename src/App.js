@@ -6,9 +6,17 @@ import Key from './Key.js';
 import notes from './notes';
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+
+        this.OCTAVES = [3, 4, 5, 6, 7];
+    }
+
     keys() {
-        return notes.map((note) =>
-            <Key note={note} key={note}/>
+        return this.OCTAVES.map((octave) =>
+            notes.map((note) =>
+                <Key note={note} octave={octave} key={note}/>
+            )
         );
     }
 
@@ -19,9 +27,6 @@ class App extends Component {
             <div className="app">
                 <div className="fill"></div>
                 <div className="keys">
-                    {keys}
-                    {keys}
-                    {keys}
                     {keys}
                 </div>
             </div>
